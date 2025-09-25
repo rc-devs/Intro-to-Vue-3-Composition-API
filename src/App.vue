@@ -18,13 +18,17 @@ const inStock = computed(() => {
   return variants.value[selectedVariant.value].quantity //selectedVariant.value == index in array; we get the variant at the specified index, and then access the key inside
 })
 
+const onSale = computed(() => {
+  return variants.value[selectedVariant.value].onSale //not a bool ref by itsel, but checks the bool of onSale within variant
+})
+
 const selectedVariant = ref(0)
   
 const details = ref(['50% cotton', '30% wool', '20% polyester'])
 
 const variants = ref([
-  { id: 2234, color: 'green', image: socksGreenImage, quantity: 50 },
-  { id: 2235, color: 'blue', image: socksBlueImage, quantity: 0 },
+  { id: 2234, color: 'green', image: socksGreenImage, quantity: 50, onSale: true },
+  { id: 2235, color: 'blue', image: socksBlueImage, quantity: 0, onSale: false },
 ])
 
 const cart = ref(0)
@@ -32,8 +36,12 @@ const cart = ref(0)
 const addToCart = () => cart.value += 1
 
 const updateVariant = (index) => {
-  selectedVariant.value = index
+  selectedVariant.value = index //reassigns selected variant as index
 }
+
+const isOnSale = computed(() => {
+  return brand.value + ' ' + product.value + ' are on sale'
+}) 
 
 </script>
   
@@ -49,6 +57,7 @@ const updateVariant = (index) => {
         <h1>{{ title }}</h1>
         <p v-if="inStock">In Stock</p>
         <p v-else>Out of Stock</p>
+        <p v-if="onSale">{{ isOnSale }}</p>
         <ul>
           <li v-for="detail in details">{{ detail }}</li>
         </ul>
