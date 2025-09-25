@@ -10,8 +10,7 @@ const title = computed(() => {
   return brand.value + ' ' + product.value
 })
 
-const image = ref(socksGreenImage)
-const inStock = ref(false)
+const selectedVariant = ref(0)
   
 const details = ref(['50% cotton', '30% wool', '20% polyester'])
 
