@@ -37,7 +37,7 @@ const cart = ref(0)
         >
           {{ variant.color }}
         </div>
-        <button class="button">Add to Cart</button>
+        <button class="button" v-on:click="cart +=1">Add to Cart</button>
       </div>
     </div>
   </div>
