@@ -10,6 +10,14 @@ const title = computed(() => {
   return brand.value + ' ' + product.value
 })
 
+const image = computed(() => {
+  return variants.value[selectedVariant.value].image //selectedVariant.value == index in array; we get the variant at the specified index, and then access the key inside
+})
+
+const inStock = computed(() => {
+  return variants.value[selectedVariant.value].quantity //selectedVariant.value == index in array; we get the variant at the specified index, and then access the key inside
+})
+
 const selectedVariant = ref(0)
   
 const details = ref(['50% cotton', '30% wool', '20% polyester'])
@@ -25,7 +33,6 @@ const addToCart = () => cart.value += 1
 
 const updateVariant = (index) => {
   selectedVariant.value = index
-  console.log(index)
 }
 
 </script>
