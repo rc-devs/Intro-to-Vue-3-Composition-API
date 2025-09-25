@@ -4,6 +4,7 @@ import socksGreenImage from './assets/images/socks_green.jpeg'
 
 const product = ref('Socks')
 const image = ref(socksGreenImage)
+const url = ref('https://www.google.com/')
 </script>
 
 <template>
@@ -14,6 +15,7 @@ const image = ref(socksGreenImage)
       </div>
       <div class="product-info">
         <h1>{{ product }}</h1>
+        <a :href="url">Google</a>
       </div>
     </div>
   </div>
