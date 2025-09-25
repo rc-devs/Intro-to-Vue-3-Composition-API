@@ -23,7 +23,10 @@ const cart = ref(0)
 
 const addToCart = () => cart.value += 1
 
-const updateImage = (variantImage) => image.value = variantImage
+const updateVariant = (index) => {
+  selectedVariant.value = index
+  console.log(index)
+}
 
 </script>
   
@@ -43,9 +46,9 @@ const updateImage = (variantImage) => image.value = variantImage
           <li v-for="detail in details">{{ detail }}</li>
         </ul>
         <div 
-          v-for="variant in variants" 
+          v-for="(variant, index) in variants" 
           :key="variant.id"
-          @mouseover="updateImage(variant.image)"
+          @mouseover="updateVariant(index)"
           class="color-circle"
           :style="{ backgroundColor: variant.color }"
         >
