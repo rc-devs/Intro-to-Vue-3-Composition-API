@@ -1,10 +1,14 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import socksGreenImage from './assets/images/socks_green.jpeg'
 import socksBlueImage from './assets/images/socks_blue.jpeg'
 
 const product = ref('Socks')
 const brand = ref('Vue Mastery')
+
+const title = computed(() => {
+  return brand.value + ' ' + product.value
+})
 
 const image = ref(socksGreenImage)
 const inStock = ref(false)
@@ -33,7 +37,7 @@ const updateImage = (variantImage) => image.value = variantImage
         <img v-bind:src="image">
       </div>
       <div class="product-info">
-        <h1>{{ product }}</h1>
+        <h1>{{ title }}</h1>
         <p v-if="inStock">In Stock</p>
         <p v-else>Out of Stock</p>
         <ul>
