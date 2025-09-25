@@ -1,15 +1,15 @@
 <script setup>
 import { ref } from 'vue'
+import socksGreenImage from './assets/images/socks_green.jpeg'
 
 const product = ref('Socks')
-
 </script>
 
 <template>
   <div class="product-display">
     <div class="product-container">
       <div class="product-image">
-        <!-- image goes here -->
+        <img v-bind:src="socksGreenImage" alt="Green Socks">
       </div>
       <div class="product-info">
         <h1>{{ product }}</h1>
