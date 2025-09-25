@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 
 const product = ref('Socks')
+const description = ref ('These socks are a blend of cotton and polyester')
 </script>
 
 
@@ -10,6 +11,7 @@ const product = ref('Socks')
     <div class="product-container">
       <div class="product-info">
         <h1>{{product}}</h1>
+        <p>{{description}}</p>
       </div>
     </div>
   </div>
